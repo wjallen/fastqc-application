@@ -40,8 +40,7 @@ apps-deploy -E app.ini -f Dockerfile -a fastqc-0.11.7/app.json.j2 -j fastqc-0.11
 
 ### 4. Test
 ```
-jobs-template username-fastqc-0.11.7 > job.json
-jobs-submit -F job.json
+jobs-submit -F deploy-username-job.json
 jobs-output-list <jobid>
 ```
 => job was a success if `read1_fastqc.html` exists
