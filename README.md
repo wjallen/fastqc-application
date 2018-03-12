@@ -29,7 +29,7 @@ cd fastqc-application/
 #### ./fastqc-0.11.7/app.json.j2
 => change `executionSystem`, `deploymentSystem`, and `deploymentPath` if necessary
 
-####./fastqc-0.11.7/runner-template.sh
+#### ./fastqc-0.11.7/runner-template.sh
 => change `CONTAINER_IMAGE` to your preferred repo source
 
 
@@ -44,5 +44,5 @@ jobs-template username-fastqc-0.11.7 > job.json
 jobs-submit -F job.json
 jobs-output-list <jobid>
 ```
-=> looking for `read1_fastqc.html`
+=> job was a success if `read1_fastqc.html` exists
 
