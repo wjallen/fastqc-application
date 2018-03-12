@@ -1,6 +1,7 @@
 # fastqc-application
 
-### contents
+### 0. Contents
+```
 .
 ├── Dockerfile
 ├── README.md
@@ -13,14 +14,15 @@
     ├── job.json.j2
     ├── runner-template.sh
     └── tester.sh
+```
 
-
-### clone
+### 1. Clone
+```
 git clone https://github.com/wjallen/fastqc-application
 cd fastqc-application/
+```
 
-
-### personalize
+### 2. Personalize
 #### ./app.ini
 => change to your docker username / preferred repo and tag
 
@@ -31,14 +33,16 @@ cd fastqc-application/
 => change `CONTAINER_IMAGE` to your preferred repo source
 
 
-### deploy
+### 3. Deploy
+```
 apps-deploy -E app.ini -f Dockerfile -a fastqc-0.11.7/app.json.j2 -j fastqc-0.11.7/app.json.j2 -T ./
+```
 
-
-### test
+### 4. Test
+```
 jobs-template username-fastqc-0.11.7 > job.json
 jobs-submit -F job.json
 jobs-output-list <jobid>
-
+```
 => looking for `read1_fastqc.html`
 
