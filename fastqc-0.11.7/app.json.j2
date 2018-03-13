@@ -4,8 +4,8 @@
   "executionType": "HPC",
   "executionSystem": "hpc-tacc-maverick-{{ agave.username }}",
   "parallelism": "SERIAL",
-  "deploymentPath": "sd2e/apps/{{ app.name }}-{{ app.version }}",
-  "deploymentSystem": "data-tacc-work-{{ agave.username }}",
+  "deploymentPath": "{{ agave.username }}/apps/{{ app.name }}-{{ app.version }}",
+  "deploymentSystem": "data-sd2e-projects-users",
   "defaultProcessorsPerNode": 1,
   "defaultNodeCount": 1,
   "defaultQueue": "normal",
@@ -32,6 +32,17 @@
       }
     }
   ],
-  "parameters":[],
+  "parameters":[
+  {
+      "id": "CONTAINER_IMAGE",
+      "value": {
+        "default": "{{ docker.username }}/{{ docker.repo }}:{{ docker.tag }}",
+        "type": "string",
+        "visible": false,
+        "required": true,
+        "order": 99
+      }
+    }
+  ],
   "outputs": []
 }
