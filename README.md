@@ -35,7 +35,7 @@ cd fastqc-application/
 
 ### 3. Deploy
 ```
-apps-deploy -E app.ini -f Dockerfile -a fastqc-0.11.7/app.json.j2 -j fastqc-0.11.7/job.json.j2 -T ./
+apps-deploy -E app.ini --test-job fastqc-0.11.7
 ```
 
 ### 4. Test
